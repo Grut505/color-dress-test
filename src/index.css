@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  --bg-1: #fff2dd;
+  --bg-2: #f6fbff;
+  --bg-3: #f2ffe8;
+  --ink: #2a1d13;
+  --ink-muted: #6e5a49;
+  --line: #eadfce;
+  --body-font: 'Nunito', 'Trebuchet MS', sans-serif;
+  --title-font: 'Baloo 2', 'Comic Sans MS', cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  font-family: var(--body-font);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(248, 122, 95, 0.2), transparent 35%),
+    radial-gradient(circle at 85% 18%, rgba(58, 134, 255, 0.2), transparent 35%),
+    radial-gradient(circle at 50% 85%, rgba(67, 170, 139, 0.25), transparent 40%),
+    linear-gradient(140deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+}
+
+#root {
+  min-height: 100svh;
+}

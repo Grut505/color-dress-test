@@ -5,8 +5,14 @@ import { questions, type ColorKey, type ColorWeights, type Option, type Question
 type Phase = 'intro' | 'quiz' | 'result'
 type Scores = Record<ColorKey, number>
 
-const SCORE_DISCRIMINATION_BOOST = 1.6
-const SOFTMAX_TEMPERATURE = 0.72
+const SCORE_DISCRIMINATION_BOOST = 1.05
+const PERCENTAGE_CONTRAST = 1.18
+const POSITION_BALANCED_PERMUTATIONS: number[][] = [
+  [0, 1, 2, 3],
+  [1, 2, 3, 0],
+  [2, 3, 0, 1],
+  [3, 0, 1, 2],
+]
 
 const colorMeta: Record<
   ColorKey,
@@ -70,25 +76,33 @@ function shuffleArray<T>(items: T[]): T[] {
 }
 
 function createRandomizedQuestions(source: Question[]): Question[] {
-  const withShuffledOptions = source.map((question) => ({
-    ...question,
-    options: shuffleArray(question.options),
-  }))
+  const shuffledQuestions = shuffleArray(source)
+  const balancedPermutationPlan = shuffleArray(
+    Array.from({ length: shuffledQuestions.length }, (_, index) => {
+      return POSITION_BALANCED_PERMUTATIONS[index % POSITION_BALANCED_PERMUTATIONS.length]
+    }),
+  )
 
-  return shuffleArray(withShuffledOptions)
+  return shuffledQuestions.map((question, index) => {
+    const permutation = balancedPermutationPlan[index]
+    return {
+      ...question,
+      options: permutation.map((optionIndex) => question.options[optionIndex]),
+    }
+  })
 }
 
 function toPercentages(scores: Scores): Record<ColorKey, number> {
   const entries = Object.entries(scores) as [ColorKey, number][]
-  const maxValue = Math.max(...entries.map(([, value]) => value))
-  const expEntries = entries.map(([key, value]) => {
-    const shifted = (value - maxValue) / SOFTMAX_TEMPERATURE
-    return [key, Math.exp(shifted)] as [ColorKey, number]
+  const minValue = Math.min(...entries.map(([, value]) => value))
+  const normalizedEntries = entries.map(([key, value]) => {
+    const shifted = value - minValue + 1
+    return [key, Math.pow(shifted, PERCENTAGE_CONTRAST)] as [ColorKey, number]
   })
 
-  const total = expEntries.reduce((acc, [, value]) => acc + value, 0)
+  const total = normalizedEntries.reduce((acc, [, value]) => acc + value, 0)
 
-  const withRemainder = expEntries.map(([key, value]) => {
+  const withRemainder = normalizedEntries.map(([key, value]) => {
     const exact = (value / total) * 100
     return { key, floor: Math.floor(exact), remainder: exact - Math.floor(exact) }
   })

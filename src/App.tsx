@@ -5,6 +5,9 @@ import { questions, type ColorKey, type ColorWeights, type Option, type Question
 type Phase = 'intro' | 'quiz' | 'result'
 type Scores = Record<ColorKey, number>
 
+const SCORE_DISCRIMINATION_BOOST = 1.6
+const SOFTMAX_TEMPERATURE = 0.72
+
 const colorMeta: Record<
   ColorKey,
   {
@@ -77,13 +80,15 @@ function createRandomizedQuestions(source: Question[]): Question[] {
 
 function toPercentages(scores: Scores): Record<ColorKey, number> {
   const entries = Object.entries(scores) as [ColorKey, number][]
-  const total = entries.reduce((acc, [, value]) => acc + value, 0)
+  const maxValue = Math.max(...entries.map(([, value]) => value))
+  const expEntries = entries.map(([key, value]) => {
+    const shifted = (value - maxValue) / SOFTMAX_TEMPERATURE
+    return [key, Math.exp(shifted)] as [ColorKey, number]
+  })
 
-  if (total === 0) {
-    return { red: 25, yellow: 25, green: 25, blue: 25 }
-  }
+  const total = expEntries.reduce((acc, [, value]) => acc + value, 0)
 
-  const withRemainder = entries.map(([key, value]) => {
+  const withRemainder = expEntries.map(([key, value]) => {
     const exact = (value / total) * 100
     return { key, floor: Math.floor(exact), remainder: exact - Math.floor(exact) }
   })
@@ -179,13 +184,24 @@ function App() {
   }
 
   function answerQuestion(option: Option) {
-    const weights: ColorWeights = option.weights
+    const selectedWeights: ColorWeights = option.weights
+    const optionCount = currentQuestion.options.length
+
+    const averageWeights: ColorWeights = currentQuestion.options.reduce(
+      (acc, currentOption) => ({
+        red: acc.red + currentOption.weights.red / optionCount,
+        yellow: acc.yellow + currentOption.weights.yellow / optionCount,
+        green: acc.green + currentOption.weights.green / optionCount,
+        blue: acc.blue + currentOption.weights.blue / optionCount,
+      }),
+      { red: 0, yellow: 0, green: 0, blue: 0 },
+    )
 
     setScores((prev) => ({
-      red: prev.red + weights.red,
-      yellow: prev.yellow + weights.yellow,
-      green: prev.green + weights.green,
-      blue: prev.blue + weights.blue,
+      red: prev.red + (selectedWeights.red - averageWeights.red) * SCORE_DISCRIMINATION_BOOST,
+      yellow: prev.yellow + (selectedWeights.yellow - averageWeights.yellow) * SCORE_DISCRIMINATION_BOOST,
+      green: prev.green + (selectedWeights.green - averageWeights.green) * SCORE_DISCRIMINATION_BOOST,
+      blue: prev.blue + (selectedWeights.blue - averageWeights.blue) * SCORE_DISCRIMINATION_BOOST,
     }))
 
     if (step === quizQuestions.length - 1) {

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import './App.css'
-import { questions, type ColorKey, type ColorWeights, type Option } from './data/questions'
+import { questions, type ColorKey, type ColorWeights, type Option, type Question } from './data/questions'
 
 type Phase = 'intro' | 'quiz' | 'result'
 type Scores = Record<ColorKey, number>
@@ -56,6 +56,24 @@ const colorMeta: Record<
 }
 
 const initialScores: Scores = { red: 0, yellow: 0, green: 0, blue: 0 }
+
+function shuffleArray<T>(items: T[]): T[] {
+  const shuffled = [...items]
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
+function createRandomizedQuestions(source: Question[]): Question[] {
+  const withShuffledOptions = source.map((question) => ({
+    ...question,
+    options: shuffleArray(question.options),
+  }))
+
+  return shuffleArray(withShuffledOptions)
+}
 
 function toPercentages(scores: Scores): Record<ColorKey, number> {
   const entries = Object.entries(scores) as [ColorKey, number][]
@@ -137,9 +155,10 @@ function App() {
   const [phase, setPhase] = useState<Phase>('intro')
   const [step, setStep] = useState(0)
   const [scores, setScores] = useState<Scores>(initialScores)
+  const [quizQuestions, setQuizQuestions] = useState<Question[]>(() => createRandomizedQuestions(questions))
 
-  const currentQuestion = questions[step]
-  const progress = Math.round((step / questions.length) * 100)
+  const currentQuestion = quizQuestions[step]
+  const progress = Math.round((step / quizQuestions.length) * 100)
 
   const percentages = useMemo(() => toPercentages(scores), [scores])
   const sorted = useMemo(
@@ -153,6 +172,7 @@ function App() {
   const outfitSuggestion = `${colorMeta[dominant].outfit} Bonus ${colorMeta[secondary].label.toLowerCase()}: ${colorMeta[secondary].outfit.toLowerCase()}`
 
   function startQuiz() {
+    setQuizQuestions(createRandomizedQuestions(questions))
     setPhase('quiz')
     setStep(0)
     setScores(initialScores)
@@ -168,7 +188,7 @@ function App() {
       blue: prev.blue + weights.blue,
     }))
 
-    if (step === questions.length - 1) {
+    if (step === quizQuestions.length - 1) {
       setPhase('result')
       return
     }
@@ -204,7 +224,7 @@ function App() {
           <div className="quiz card pop-in">
             <div className="progress-meta">
               <span>
-                Question {step + 1} / {questions.length}
+                Question {step + 1} / {quizQuestions.length}
               </span>
               <span>{currentQuestion.vibe === 'party' ? 'Mode soiree' : 'Mode quotidien'}</span>
             </div>

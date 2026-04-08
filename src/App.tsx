@@ -191,7 +191,7 @@ function App() {
           <div className="intro card pop-in">
             <h2>Comment ca marche ?</h2>
             <p>
-              24 questions, 3 minutes max, resultat en repartition complete Rouge Jaune Vert Bleu.
+              {questions.length} questions, 2 minutes max, resultat en repartition complete Rouge Jaune Vert Bleu.
               Ensuite tu recois ton portrait et une reco tenue fun, version souple.
             </p>
             <button className="primary-btn" onClick={startQuiz}>

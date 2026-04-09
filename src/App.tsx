@@ -23,15 +23,6 @@ const QUESTIONS_PER_RUN = 12
 const SCORE_DISCRIMINATION_BOOST = 1.02
 const PERCENTAGE_CONTRAST = 1.14
 
-const POSITION_BALANCED_PERMUTATIONS: number[][] = [
-  [0, 1, 2, 3, 4, 5],
-  [1, 2, 3, 4, 5, 0],
-  [2, 3, 4, 5, 0, 1],
-  [3, 4, 5, 0, 1, 2],
-  [4, 5, 0, 1, 2, 3],
-  [5, 0, 1, 2, 3, 4],
-]
-
 const colorMeta: Record<ColorKey, { label: string; hex: string; traits: string; signal: string }> = {
   red: {
     label: 'Rouge',
@@ -72,20 +63,10 @@ function shuffleArray<T>(items: T[]): T[] {
 
 function createRandomizedQuestions(source: Question[]): Question[] {
   const selected = shuffleArray(source).slice(0, QUESTIONS_PER_RUN)
-
-  const permutationPlan = shuffleArray(
-    Array.from({ length: selected.length }, (_, index) => {
-      return POSITION_BALANCED_PERMUTATIONS[index % POSITION_BALANCED_PERMUTATIONS.length]
-    }),
-  )
-
-  return selected.map((question, index) => {
-    const permutation = permutationPlan[index]
-    return {
-      ...question,
-      options: permutation.map((optionIndex) => question.options[optionIndex]),
-    }
-  })
+  return selected.map((question) => ({
+    ...question,
+    options: shuffleArray(question.options),
+  }))
 }
 
 function toPercentages(scores: Scores): Record<ColorKey, number> {

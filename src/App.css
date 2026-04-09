@@ -91,7 +91,7 @@ h2 {
 
 .progress-meta {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   color: var(--ink-muted);
   font-size: 0.9rem;
 }
@@ -120,6 +120,12 @@ h2 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.7rem;
+}
+
+.quiz-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
 }
 
 .answer-btn {

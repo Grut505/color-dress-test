@@ -18,7 +18,16 @@ type SavedResult = {
   answers: AnswerRecord[]
 }
 
+type InProgressSession = {
+  quizQuestions: Question[]
+  step: number
+  scores: Scores
+  answers: AnswerRecord[]
+  updatedAt: string
+}
+
 const STORAGE_KEY = 'color-dress-test:last-result'
+const IN_PROGRESS_KEY = 'color-dress-test:in-progress'
 const QUESTIONS_PER_RUN = 12
 const SCORE_DISCRIMINATION_BOOST = 1.02
 const PERCENTAGE_CONTRAST = 1.14
@@ -172,6 +181,7 @@ function App() {
   const [answers, setAnswers] = useState<AnswerRecord[]>([])
   const [savedResult, setSavedResult] = useState<SavedResult | null>(null)
   const [showingSavedResult, setShowingSavedResult] = useState(false)
+  const [inProgressSession, setInProgressSession] = useState<InProgressSession | null>(null)
 
   useEffect(() => {
     const raw = localStorage.getItem(STORAGE_KEY)
@@ -184,6 +194,20 @@ function App() {
       }
     } catch {
       localStorage.removeItem(STORAGE_KEY)
+    }
+  }, [])
+
+  useEffect(() => {
+    const raw = localStorage.getItem(IN_PROGRESS_KEY)
+    if (!raw) return
+
+    try {
+      const parsed = JSON.parse(raw) as InProgressSession
+      if (parsed?.quizQuestions?.length && typeof parsed.step === 'number' && parsed.scores && parsed.answers) {
+        setInProgressSession(parsed)
+      }
+    } catch {
+      localStorage.removeItem(IN_PROGRESS_KEY)
     }
   }, [])
 
@@ -220,7 +244,33 @@ function App() {
     setSavedResult(snapshot)
   }, [phase, showingSavedResult, answers, liveSorted, livePercentages])
 
+  useEffect(() => {
+    if (phase !== 'quiz') {
+      return
+    }
+
+    const snapshot: InProgressSession = {
+      quizQuestions,
+      step,
+      scores,
+      answers,
+      updatedAt: new Date().toISOString(),
+    }
+
+    localStorage.setItem(IN_PROGRESS_KEY, JSON.stringify(snapshot))
+    setInProgressSession(snapshot)
+  }, [phase, quizQuestions, step, scores, answers])
+
   function startQuiz() {
+    if (inProgressSession && phase === 'intro') {
+      const shouldReplace = window.confirm('Une partie en pause existe déjà. Démarrer une nouvelle partie écrasera la pause. Continuer ?')
+      if (!shouldReplace) {
+        return
+      }
+    }
+
+    localStorage.removeItem(IN_PROGRESS_KEY)
+    setInProgressSession(null)
     setQuizQuestions(createRandomizedQuestions(questions))
     setPhase('quiz')
     setStep(0)
@@ -233,6 +283,27 @@ function App() {
     if (!savedResult) return
     setShowingSavedResult(true)
     setPhase('result')
+  }
+
+  function resumeQuiz() {
+    if (!inProgressSession) return
+
+    setQuizQuestions(inProgressSession.quizQuestions)
+    setStep(inProgressSession.step)
+    setScores(inProgressSession.scores)
+    setAnswers(inProgressSession.answers)
+    setShowingSavedResult(false)
+    setPhase('quiz')
+  }
+
+  function pauseQuiz() {
+    if (phase !== 'quiz') return
+    setPhase('intro')
+  }
+
+  function goHome() {
+    setPhase('intro')
+    setShowingSavedResult(false)
   }
 
   function answerQuestion(option: Option) {
@@ -260,6 +331,8 @@ function App() {
 
     if (step === quizQuestions.length - 1) {
       setShowingSavedResult(false)
+      localStorage.removeItem(IN_PROGRESS_KEY)
+      setInProgressSession(null)
       setPhase('result')
       return
     }
@@ -271,7 +344,6 @@ function App() {
     <main className="app-shell">
       <section className="panel">
         <header className="panel-head">
-          <p className="eyebrow">Profil couleur</p>
           <h1>Color Dress Test</h1>
           <p className="subtitle">12 questions tirées au hasard dans une banque de 36. Réponds spontanément.</p>
         </header>
@@ -292,6 +364,11 @@ function App() {
                   Voir mon dernier résultat
                 </button>
               )}
+              {inProgressSession && (
+                <button className="secondary-btn" onClick={resumeQuiz}>
+                  Reprendre la partie
+                </button>
+              )}
             </div>
           </div>
         )}
@@ -302,7 +379,6 @@ function App() {
               <span>
                 Question {step + 1} / {quizQuestions.length}
               </span>
-              <span>{currentQuestion.vibe === 'party' ? 'Mode social' : 'Mode quotidien'}</span>
             </div>
             <div className="progress-track" aria-hidden="true">
               <div className="progress-fill" style={{ width: `${progress}%` }}></div>
@@ -315,6 +391,15 @@ function App() {
                   <span>{option.label}</span>
                 </button>
               ))}
+            </div>
+
+            <div className="quiz-actions">
+              <button className="secondary-btn" onClick={pauseQuiz}>
+                Mettre en pause
+              </button>
+              <button className="secondary-btn" onClick={goHome}>
+                Retour à l'accueil
+              </button>
             </div>
           </div>
         )}
@@ -379,6 +464,9 @@ function App() {
 
             <button className="primary-btn" onClick={startQuiz}>
               Refaire le test
+            </button>
+            <button className="secondary-btn" onClick={goHome}>
+              Retour à l'accueil
             </button>
           </div>
         )}

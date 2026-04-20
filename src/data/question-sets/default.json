@@ -1,0 +1,2419 @@
+{
+  "id": "default",
+  "description": "Version de base (36 questions melange quotidien/sortie), generee pour le quiz standard.",
+  "createdAt": "2026-04-20",
+  "questions": [
+    {
+      "id": 1,
+      "prompt": "Tu ouvres le groupe WhatsApp: 96 messages, 3 dramas, 0 décision.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je résume en 2 lignes et je tranche.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je recadre la conversation pour que tout le monde suive.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je vérifie d'abord qui s'est pris une balle perdue.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je trie les infos utiles et je reformule proprement.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je relance le groupe en mode: on bouge maintenant.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je garde le calme, je simplifie, puis je fais avancer.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 2,
+      "prompt": "Le groupe hésite sur le bar depuis 30 minutes.",
+      "options": [
+        {
+          "id": "a",
+          "label": "J'envoie une adresse. Fin du suspense.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je fais choisir entre 2 options claires et j'embarque tout le monde.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je prends l'option qui évite de laisser des gens de côté.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je compare distance, prix, attente et retour.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je transforme le débat en vote express.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je propose un plan simple avec option B si ça coince.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 3,
+      "prompt": "Un pote t'envoie un message passif-agressif à 00h42.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je recadre direct, calmement, sans détour.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je reformule pour reprendre la main sur le ton.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je cherche ce qui l'a piqué avant de répondre.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je réponds avec faits précis et zéro sous-entendu.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je relance vers une issue concrète tout de suite.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je propose d'en parler au calme demain.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 4,
+      "prompt": "Tu arrives à un dîner où tu connais 2 personnes sur 12.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je prends vite la température et je me place.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je connecte les gens entre eux sans forcer.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je repère les silencieux et je les inclue.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "J'observe d'abord les dynamiques du groupe.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je lance un sujet qui met du rythme.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je construis un petit cercle et j'élargis ensuite.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 5,
+      "prompt": "Ton plan de la soirée déraille à cause d'un imprévu lourd.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je coupe le non-vital et je repars tout de suite.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je préviens les bonnes personnes pour resynchroniser.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je stabilise le groupe avant de relancer.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je refais le plan avec impacts et alternatives.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je transforme la galère en sprint collectif.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je garde un cap simple et tenable.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 6,
+      "prompt": "Quelqu'un monopolise la discussion depuis trop longtemps.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je coupe net mais propre: on redistribue la parole.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je recadre avec tact et une pointe d'humour.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je fais entrer les plus discrets dans le jeu.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "J'attends le bon moment pour recentrer proprement.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je relance un sujet plus collectif.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je pivote doucement vers un format plus équilibré.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 7,
+      "prompt": "Un pote te fait une critique sèche, possiblement juste.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je prends l'utile et je corrige direct.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je clarifie franchement pour éviter les non-dits.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je protège d'abord la relation.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je demande des exemples précis.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je transforme ça en plan d'amélioration rapide.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je prends du recul et je corrige durablement.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 8,
+      "prompt": "Le week-end entre potes part en débat sans fin.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je clos le débat avec une proposition finale.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je crée un consensus et je remets de la fluidité.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je protège les contraintes perso de chacun.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je compare coûts, trajets et risques.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je lance un vote express et on avance.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je propose un plan sobre qui tient quoi qu'il arrive.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 9,
+      "prompt": "Tu dois gérer une cagnotte de groupe en urgence.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je prends la main et je lance la collecte.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je mobilise les bonnes personnes pour accélérer.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je veille à ce que personne ne se sente forcé.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je trace montants, dates et statuts proprement.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je donne un objectif clair et une deadline courte.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je sécurise un fonctionnement simple et transparent.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 10,
+      "prompt": "La soirée est plate, l'énergie tombe d'un coup.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je change le rythme, maintenant.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je fais circuler l'énergie entre les groupes.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je garde une ambiance safe pour tout le monde.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je structure une activité simple qui marche.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je lance un format participatif qui relance vite.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je relance sans forcer qui n'a pas envie.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 11,
+      "prompt": "Tu dois préparer une sortie ce soir et rien n'est prêt.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je fais 3 priorités et le reste attendra.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je synchronise vite tout le monde.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je garde un rythme tenable pour ne pas exploser.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je planifie par étapes avec timing réaliste.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je me mets en mode sprint court et efficace.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je sécurise le minimum qui garantit une bonne soirée.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 12,
+      "prompt": "Tu rencontres quelqu'un de très charismatique et très bavard.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je pose mes limites vite et proprement.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je joue la conversation en influence mutuelle.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je veille à un échange équilibré.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je lis les signaux avant d'ajuster.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je garde le tempo vivant et assumé.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je reste posé, cohérent, et clair.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 13,
+      "prompt": "Deux potes sont en clash et te mettent au milieu.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je fixe les règles et on avance.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je fais parler les deux sans laisser partir en vrille.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je protège d'abord le lien entre eux.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je sépare faits, ressentis et interprétations.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je pousse vers une issue concrète rapidement.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je vise un accord stable pour la suite.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 14,
+      "prompt": "Dress code flou: personne ne sait quoi mettre.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je choisis net et j'assume.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je prends une tenue qui parle pour moi.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je privilégie confort et aisance sociale.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je compose une tenue cohérente dans les détails.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je mixe présence et audace sans surjouer.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je garde un style simple et fiable.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 15,
+      "prompt": "Road trip entre potes: il faut choisir la destination maintenant.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je choisis et je lance la réservation.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je prends la température et j'aligne le groupe.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je prends l'option qui respecte les contraintes de chacun.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je compare budget, route, timing, fatigue.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je fixe un cap motivant et on décolle.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je choisis une option solide et peu risquée.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 16,
+      "prompt": "Tu dois présenter un pote au groupe en 20 secondes.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je vais à l'essentiel, impact immédiat.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je crée une intro qui connecte les gens.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je mets d'abord la personne à l'aise.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je formule proprement, sans improvisation bancale.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je donne du relief et de l'énergie.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je reste simple, juste et naturel.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 17,
+      "prompt": "Un pote plante un engagement important à la dernière minute.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je recadre fermement et je fixe une suite.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je parle direct avec lui pour réaligner.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je cherche d'abord une sortie sans casse.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je clarifie les faits et les impacts exacts.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je lance un plan de rattrapage immédiat.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je sécurise des règles simples pour la prochaine fois.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 18,
+      "prompt": "Quelqu'un annule au dernier moment, le plan vacille.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je remplace vite et je maintiens le cap.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je relance le groupe avec une alternative qui donne envie.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je m'assure que personne ne se sente mis de côté.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je rééquilibre logistique, timing et coûts.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je transforme le contretemps en nouvelle opportunité.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je simplifie le plan pour garder une bonne expérience.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 19,
+      "prompt": "Tu dois annoncer une mauvaise nouvelle à ton groupe de potes.",
+      "options": [
+        {
+          "id": "a",
+          "label": "J'annonce clairement et je donne la suite.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je parle vrai et je garde tout le monde aligné.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je fais attention aux personnes les plus touchées.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je donne le contexte précis pour éviter les fantasmes.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je convertis la claque en plan d'action.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je pose un cadre stable pour la suite.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 20,
+      "prompt": "On te confie l'orga d'un anniversaire surprise.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je prends la direction et je distribue les rôles.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je connecte les bonnes personnes et j'orchestre.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je veille à ce que chacun trouve sa place.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je structure planning, budget, points de contrôle.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je maintiens une énergie haute du début à la fin.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je vise une exécution simple et fiable.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 21,
+      "prompt": "Tu arrives dans un nouveau cercle de potes.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je pose vite ma style et j'avance.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je crée des liens rapidement entre les gens.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je prends le temps pour que chacun soit à l'aise.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "J'observe les codes du groupe avant de me placer.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je lance un elan collectif pour briser la glace.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je m'intègre progressivement sans forcer.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 22,
+      "prompt": "Vous avez 5 places pour un concert, vous êtes 8.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je tranche selon des critères clairs.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "J'explique la décision pour limiter la frustration.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je cherche une solution pour les non-pris.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je fais une règle transparente et vérifiable.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je propose une deuxième sortie pour compenser.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je garde une répartition cohérente et comprise.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 23,
+      "prompt": "Le plan du dimanche est flou, mais tout le monde compte sur toi.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je propose un plan exploitable tout de suite.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je clarifie rapidement avec les personnes clés.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je protège ce qui pourrait mettre les autres en galère.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je comble les zones floues avant de valider.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je lance une version 1 et j'ajuste vite.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je vise une version simple qui tient bien.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 24,
+      "prompt": "Mini clash en soirée: ça peut vite tourner moche.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je fixe les limites et j'arrête l'escalade.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je fais baisser la pression par la parole.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je protège les sensibilités de chacun.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je distingue faits, émotions, interprétations.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je redirige vers une sortie praticable vite.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je cherche un accord tenable pour la suite.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 25,
+      "prompt": "On te confie l'orga d'un déménagement entre potes.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je prends la mission et j'envoie le plan.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je mobilise les bonnes personnes au bon moment.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je répartis en respectant les limites de chacun.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je cadre trajets, horaires, matériel, risques.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je transforme ça en mission collective efficace.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je prépare une montée en charge progressive.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 26,
+      "prompt": "Tu dois improviser un toast devant des gens différents.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je fais court, fort, mémorable.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je parle avec impact social et chaleur.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je rends le moment inclusif et sincère.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je structure en intro-cœur-sortie.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je donne du relief et du rythme.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je reste sobre et juste.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 27,
+      "prompt": "Un pote change totalement le plan en plein trajet.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je recadre et je fixe le nouveau périmètre.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je négocie une trajectoire acceptable pour tous.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je protège le groupe de l'effet yo-yo.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je formalise impacts: temps, coût, fatigue.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je convertis le pivot en nouvel élan.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je sécurise une version stable du plan.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 28,
+      "prompt": "Fin de soirée: il faut ranger et personne ne bouge.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je répartis les tâches et c'est parti.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je motive le groupe, version ferme mais sympa.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je fais en sorte que ce soit juste pour tous.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je découpe en étapes simples et efficaces.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je transforme ça en mini challenge collectif.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je vise propre, rapide, sans drama.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 29,
+      "prompt": "Tu expliques un jeu de règles compliqué à des potes impatients.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je donne les règles vitales et on joue.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je raconte de façon claire et entraînante.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je vérifie que personne ne se sente largué.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je simplifie sans perdre la précision.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je garde du rythme pour éviter l'ennui.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je donne des règles simples et stables.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 30,
+      "prompt": "Un ami est vexé après une remarque mal reçue.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je clarifie direct et je clos proprement.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je parle franchement pour réparer le lien.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je prends le temps d'écouter vraiment.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je reviens sur les mots exacts et le contexte.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je relance la dynamique sur une base saine.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je sécurise un accord simple pour la suite.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 31,
+      "prompt": "Tu as une décision difficile à prendre avec infos incomplètes.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je décide avec ce qu'on a et j'ajuste ensuite.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je prends le pouls des personnes clés avant.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je privilégie l'option la plus soutenable humainement.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je challenge les hypothèses et je garde une trace.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je construis un plan d'action rapide.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je choisis une option robuste et réversible.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 32,
+      "prompt": "Photo de groupe: personne n'est d'accord sur le style.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je tranche le setup et on déclenche.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je fais poser chacun avec sa style.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je m'assure que personne ne soit oublié.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je règle angle, lumière, cadrage.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je relance l'énergie pour capturer un vrai moment.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je prends une version simple qui marche à coup sûr.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 33,
+      "prompt": "Tu dois déléguer une tâche sensible pour une sortie entre potes.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je délègue clairement avec résultat attendu.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je choisis la personne qui fait bien circuler l'info.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je délègue en tenant compte de la charge de chacun.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je donne un brief précis et des critères clairs.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je donne de l'autonomie avec un point de suivi.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je sécurise un cadre pour éviter les surprises.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 34,
+      "prompt": "Un débat politique démarre et la table chauffe fort.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je fixe les limites et j'évite la foire.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je redistribue la parole pour baisser la tension.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je recentre sur le respect de chacun.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je distingue faits et opinions calmement.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je redirige vers un terrain moins explosif.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je propose une pause et une reprise plus clean.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    },
+    {
+      "id": 35,
+      "prompt": "Tu dois faire un bilan budget après un week-end entre potes.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je donne le bilan et les décisions.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je l'explique de façon claire et acceptable pour tous.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je fais attention à ce que personne ne se sente jugé.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je fournis chiffres, preuves et limites.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je propose la suite pour éviter la même galère.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je donne une version concrète et durable.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "quotidien"
+    },
+    {
+      "id": 36,
+      "prompt": "Dernière question: en groupe de potes, ton style naturel c'est quoi ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je fais bouger les choses vite.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je relie les gens et j'influence la dynamique.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je stabilise l'ambiance et les relations.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je structure et je fiabilise le groupe.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je donne l'élan quand ça ralentit.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je rends le tout fluide et tenable.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ],
+      "contexte": "sortie"
+    }
+  ]
+}

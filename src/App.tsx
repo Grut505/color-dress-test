@@ -1,6 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
-import { questions, type ColorKey, type ColorWeights, type Option, type Question } from './data/questions'
+import {
+  activeQuestionSetMeta,
+  availableQuestionSetsMeta,
+  getQuestionsBySetId,
+  type ColorKey,
+  type ColorWeights,
+  type Option,
+  type Question,
+} from './data/questions'
 
 type Phase = 'intro' | 'quiz' | 'result'
 type Scores = Record<ColorKey, number>
@@ -173,43 +181,73 @@ function formatSavedDate(iso: string) {
   return date.toLocaleString('fr-FR', { dateStyle: 'medium', timeStyle: 'short' })
 }
 
+function getStorageKey(baseKey: string, setId: string) {
+  return `${baseKey}:${setId}`
+}
+
 function App() {
+  const [selectedSetId, setSelectedSetId] = useState(activeQuestionSetMeta.id)
   const [phase, setPhase] = useState<Phase>('intro')
   const [step, setStep] = useState(0)
   const [scores, setScores] = useState<Scores>(initialScores)
-  const [quizQuestions, setQuizQuestions] = useState<Question[]>(() => createRandomizedQuestions(questions))
+  const [quizQuestions, setQuizQuestions] = useState<Question[]>(() =>
+    createRandomizedQuestions(getQuestionsBySetId(activeQuestionSetMeta.id)),
+  )
   const [answers, setAnswers] = useState<AnswerRecord[]>([])
   const [savedResult, setSavedResult] = useState<SavedResult | null>(null)
   const [showingSavedResult, setShowingSavedResult] = useState(false)
   const [inProgressSession, setInProgressSession] = useState<InProgressSession | null>(null)
 
-  useEffect(() => {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return
+  const selectedSetMeta = useMemo(
+    () => availableQuestionSetsMeta.find((set) => set.id === selectedSetId) ?? availableQuestionSetsMeta[0],
+    [selectedSetId],
+  )
 
-    try {
-      const parsed = JSON.parse(raw) as SavedResult
-      if (parsed?.sorted && parsed?.percentages && parsed?.answers) {
-        setSavedResult(parsed)
-      }
-    } catch {
-      localStorage.removeItem(STORAGE_KEY)
-    }
+  const resultStorageKey = useMemo(() => getStorageKey(STORAGE_KEY, selectedSetId), [selectedSetId])
+  const inProgressStorageKey = useMemo(() => getStorageKey(IN_PROGRESS_KEY, selectedSetId), [selectedSetId])
+
+  useEffect(() => {
+    console.info(
+      `[questions] Active set: ${activeQuestionSetMeta.id} (${activeQuestionSetMeta.source}) - ${activeQuestionSetMeta.description}`,
+    )
   }, [])
 
   useEffect(() => {
-    const raw = localStorage.getItem(IN_PROGRESS_KEY)
-    if (!raw) return
+    const rawResult = localStorage.getItem(resultStorageKey)
+    if (!rawResult) {
+      setSavedResult(null)
+    } else {
+      try {
+        const parsed = JSON.parse(rawResult) as SavedResult
+        if (parsed?.sorted && parsed?.percentages && parsed?.answers) {
+          setSavedResult(parsed)
+        } else {
+          setSavedResult(null)
+        }
+      } catch {
+        localStorage.removeItem(resultStorageKey)
+        setSavedResult(null)
+      }
+    }
+
+    const rawInProgress = localStorage.getItem(inProgressStorageKey)
+    if (!rawInProgress) {
+      setInProgressSession(null)
+      return
+    }
 
     try {
-      const parsed = JSON.parse(raw) as InProgressSession
+      const parsed = JSON.parse(rawInProgress) as InProgressSession
       if (parsed?.quizQuestions?.length && typeof parsed.step === 'number' && parsed.scores && parsed.answers) {
         setInProgressSession(parsed)
+      } else {
+        setInProgressSession(null)
       }
     } catch {
-      localStorage.removeItem(IN_PROGRESS_KEY)
+      localStorage.removeItem(inProgressStorageKey)
+      setInProgressSession(null)
     }
-  }, [])
+  }, [resultStorageKey, inProgressStorageKey])
 
   const currentQuestion = quizQuestions[step]
   const progress = Math.round((step / quizQuestions.length) * 100)
@@ -240,9 +278,9 @@ function App() {
       answers,
     }
 
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot))
+    localStorage.setItem(resultStorageKey, JSON.stringify(snapshot))
     setSavedResult(snapshot)
-  }, [phase, showingSavedResult, answers, liveSorted, livePercentages])
+  }, [phase, showingSavedResult, answers, liveSorted, livePercentages, resultStorageKey])
 
   useEffect(() => {
     if (phase !== 'quiz') {
@@ -257,9 +295,9 @@ function App() {
       updatedAt: new Date().toISOString(),
     }
 
-    localStorage.setItem(IN_PROGRESS_KEY, JSON.stringify(snapshot))
+    localStorage.setItem(inProgressStorageKey, JSON.stringify(snapshot))
     setInProgressSession(snapshot)
-  }, [phase, quizQuestions, step, scores, answers])
+  }, [phase, quizQuestions, step, scores, answers, inProgressStorageKey])
 
   function startQuiz() {
     if (inProgressSession && phase === 'intro') {
@@ -269,9 +307,9 @@ function App() {
       }
     }
 
-    localStorage.removeItem(IN_PROGRESS_KEY)
+    localStorage.removeItem(inProgressStorageKey)
     setInProgressSession(null)
-    setQuizQuestions(createRandomizedQuestions(questions))
+    setQuizQuestions(createRandomizedQuestions(getQuestionsBySetId(selectedSetId)))
     setPhase('quiz')
     setStep(0)
     setScores(initialScores)
@@ -331,7 +369,7 @@ function App() {
 
     if (step === quizQuestions.length - 1) {
       setShowingSavedResult(false)
-      localStorage.removeItem(IN_PROGRESS_KEY)
+      localStorage.removeItem(inProgressStorageKey)
       setInProgressSession(null)
       setPhase('result')
       return
@@ -345,7 +383,9 @@ function App() {
       <section className="panel">
         <header className="panel-head">
           <h1>Color Dress Test</h1>
-          <p className="subtitle">12 questions tirées au hasard dans une banque de 36. Réponds spontanément.</p>
+          <p className="subtitle">
+            12 questions tirées au hasard dans une banque de {selectedSetMeta.questionCount}. Réponds spontanément.
+          </p>
         </header>
 
         {phase === 'intro' && (
@@ -355,6 +395,17 @@ function App() {
               Tu réponds à {QUESTIONS_PER_RUN} questions, puis tu obtiens ta répartition Rouge/Jaune/Vert/Bleu,
               un résumé concret et une proposition de tenue simple.
             </p>
+            <div className="set-picker">
+              <label htmlFor="set-select">Choisis un jeu de scénarios</label>
+              <select id="set-select" value={selectedSetId} onChange={(event) => setSelectedSetId(event.target.value)}>
+                {availableQuestionSetsMeta.map((set) => (
+                  <option key={set.id} value={set.id}>
+                    {set.id} ({set.questionCount} questions)
+                  </option>
+                ))}
+              </select>
+              <p className="set-help">{selectedSetMeta.description}</p>
+            </div>
             <div className="intro-actions">
               <button className="primary-btn" onClick={startQuiz}>
                 Lancer le test

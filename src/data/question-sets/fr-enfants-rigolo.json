@@ -6,7 +6,7 @@
     {
       "id": 1,
       "contexte": "quotidien",
-      "prompt": "La maitresse dit: \"on fait un expose en groupe\" et personne ne choisit.",
+      "prompt": "La maitresse dit: \"on fait un expose en groupe\".",
       "options": [
         {
           "id": "a",

@@ -6,11 +6,11 @@
     {
       "id": 1,
       "contexte": "quotidien",
-      "prompt": "La maitresse dit: \"on fait un expose en groupe\".",
+      "prompt": "La maitresse dit: \"on fait un exposé en groupe\".",
       "options": [
         {
           "id": "a",
-          "label": "Je propose un sujet tout de suite pour demarrer.",
+          "label": "Je' propose un sujet tout de suite pour démarrer.",
           "weights": {
             "red": 5,
             "yellow": 3,
@@ -20,7 +20,7 @@
         },
         {
           "id": "b",
-          "label": "Je demande les idees de chacun avant de choisir.",
+          "label": "Je demande les idées de chacun avant de choisir.",
           "weights": {
             "red": 3,
             "yellow": 2,
@@ -40,7 +40,7 @@
         },
         {
           "id": "d",
-          "label": "Je propose une idee qui plaira au prof interessera les eleves",
+          "label": "Je propose une idee qui plaira au prof et interessera les eleves",
           "weights": {
             "red": 1,
             "yellow": 1,
@@ -50,7 +50,7 @@
         },
         {
           "id": "e",
-          "label": "Je lance un vote rapide a main levee.",
+          "label": "Je lance un vote rapide a main levée.",
           "weights": {
             "red": 2,
             "yellow": 3,

@@ -46,26 +46,6 @@
             "green": 3,
             "blue": 2
           }
-        },
-        {
-          "id": "e",
-          "label": "Je lance un vote rapide à main levée.",
-          "weights": {
-            "red": 2,
-            "yellow": 3,
-            "green": 2,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je laisse les autre décider du sujet et commence a faire le plan de la présentation",
-          "weights": {
-            "red": 1,
-            "yellow": 0,
-            "green": 2,
-            "blue": 5
-          }
         }
       ]
     },

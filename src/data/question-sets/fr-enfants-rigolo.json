@@ -1,6 +1,6 @@
 {
   "id": "fr-enfants-rigolo",
-  "description": "Declinaison enfant (8-12 ans), vocabulaire simple et situations ecole/maison. v2",
+  "description": "Declinaison enfant (8-12 ans), vocabulaire simple et situations ecole/maison. V2 adaptee au 505",
     "createdAt": "2026-04-22",
     "questions": [
         {
@@ -22,7 +22,7 @@
                     "label": "Lire un livre dans la bibliothèque",
                     "weights": {
                         "red": 0,
-                        "yellow": 1,
+                        "yellow": 0,
                         "green": 2,
                         "blue": 5
                     }
@@ -203,7 +203,7 @@
         },
         {
             "id": 4,
-            "prompt": "C'est l'heure de rentrer, il faut ranger tout le bazar que vous avez mis dans la chambre de Louanne.",
+            "prompt": "C'est l'heure de rentrer, il faut ranger tout le bazar que vous avez mis dans la chambre de Nilo.",
             "options": [
                 {
                     "id": "a",
@@ -240,9 +240,9 @@
                     "label": "Je range méthodiquement les legos par couleur et les One Piece en ordre",
                     "weights": {
                         "red": 1,
-                        "yellow": 2,
+                        "yellow": 0,
                         "green": 1,
-                        "blue": 4
+                        "blue": 5
                     }
                 },
                 {
@@ -757,15 +757,15 @@
                     "id": "c",
                     "label": "Le jeu n'est peut être pas adapté aux plus petits, on pourrait plutôt faire cache cache sardine",
                     "weights": {
-                        "red": 1,
-                        "yellow": 2,
+                        "red": 0,
+                        "yellow": 3,
                         "green": 4,
                         "blue": 1
                     }
                 },
                 {
                     "id": "d",
-                    "label": "En attendant je pars comparer les applis de scores pour voir où sont les plus beaux graphes",
+                    "label": "En attendant je pars comparer les applis de scores pour voir où sont les plus beaux tableaux de scores.",
                     "weights": {
                         "red": 0,
                         "yellow": 2,
@@ -853,9 +853,9 @@
                     "id": "f",
                     "label": "Je vais carresser Houta pour la calmer et lui faire rendre la chaussette.",
                     "weights": {
-                        "red": 2,
+                        "red": 0,
                         "yellow": 3,
-                        "green": 3,
+                        "green": 4,
                         "blue": 1
                     }
                 }
@@ -863,7 +863,7 @@
         },
         {
             "id": 14,
-            "prompt": "Ton equipe a perdu à la première mange du Time's Up et certains accusent les autres.",
+            "prompt": "Ton equipe a perdu à la première manche du Time's Up et certains accusent les autres.",
             "options": [
                 {
                     "id": "a",
@@ -1217,7 +1217,7 @@
                 },
                 {
                     "id": "c",
-                    "label": "On pourrait faire activité caleme dans le salon, blind test dans la salle à manger et gros jeu dans la pièce avec la cheminée pour que chacun y trouve son compte ? ",
+                    "label": "On pourrait faire activité calme dans le salon, blind test dans la salle à manger et gros jeu dans la pièce avec la cheminée pour que chacun y trouve son compte ? ",
                     "weights": {
                         "red": 0,
                         "yellow": 1,

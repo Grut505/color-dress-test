@@ -1,38 +1,37 @@
 {
   "id": "fr-terreaterre-rigolo",
-  "description": "Version adulte plus terre a terre, ton leger et situations du quotidien.",
-  "createdAt": "2026-04-20",
+  "description": "Version adulte plus terre a terre, ton leger et situations du quotidien. V2 du 505",
+  "createdAt": "2026-04-22",
   "questions": [
     {
       "id": 1,
-      "contexte": "quotidien",
-      "prompt": "Le frigo est vide et tout le monde a faim dans 20 minutes.",
+      "prompt": "Retour d'une virée au PAL, le frigo est quasi vide et tout le monde a faim dans 20 minutes.",
       "options": [
         {
           "id": "a",
-          "label": "Je tranche: omelette geante, personne ne negocie.",
+          "label": "Je tranche: omelette géante, personne ne négocie.",
           "weights": {
             "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
+            "yellow": 1,
+            "green": 0,
+            "blue": 2
           }
         },
         {
           "id": "b",
-          "label": "Je prends les envies du groupe puis je propose deux menus.",
+          "label": "Je prends les envies du groupe puis je propose deux options.",
           "weights": {
             "red": 2,
-            "yellow": 4,
-            "green": 1,
+            "yellow": 3,
+            "green": 2,
             "blue": 1
           }
         },
         {
           "id": "c",
-          "label": "Je regarde qui a faim de loup ou contraintes speciales.",
+          "label": "Je prends en compte les végétariens, ceux qui n'aiment pas le fromage, les tomates, les concombres,...",
           "weights": {
-            "red": 1,
+            "red": 0,
             "yellow": 2,
             "green": 4,
             "blue": 1
@@ -44,23 +43,13 @@
           "weights": {
             "red": 1,
             "yellow": 1,
-            "green": 2,
-            "blue": 4
+            "green": 1,
+            "blue": 5
           }
         },
         {
           "id": "e",
-          "label": "Je lance un vote express entre pates, croques et soupe.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je choisis la recette anti-panique qui cale tout le monde.",
+          "label": "Pâtes au pesto, la recette anti-panique qui cale tout le monde.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -72,12 +61,11 @@
     },
     {
       "id": 2,
-      "contexte": "sortie",
-      "prompt": "Le four fait un bruit bizarre juste avant l arrivee des invites.",
+      "prompt": "Les arrivés viennent d'arriver et le four se met à faire un bruit bizarre.",
       "options": [
         {
           "id": "a",
-          "label": "Je coupe le four direct et je bascule sur la poele.",
+          "label": "Je coupe le four direct et je monte des équipes de préparation de gros apéro dînatoire",
           "weights": {
             "red": 4,
             "yellow": 2,
@@ -87,7 +75,7 @@
         },
         {
           "id": "b",
-          "label": "Je previens les invites avec humour et je garde l ambiance.",
+          "label": "Je previens les invités avec humour et je lance un blind test pour garder l'ambiance.",
           "weights": {
             "red": 2,
             "yellow": 4,
@@ -97,7 +85,7 @@
         },
         {
           "id": "c",
-          "label": "Je rassure tout le monde: personne ne panique, on gere.",
+          "label": "Je rassure tout le monde: personne ne panique, on gère.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -107,44 +95,23 @@
         },
         {
           "id": "d",
-          "label": "Je verifie disjoncteur, temperature, et options de secours.",
+          "label": "Recherche marmiton pour trouver les alternatives de cuisson de mon plat",
           "weights": {
             "red": 1,
             "yellow": 1,
             "green": 2,
             "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je propose une mission commando: chacun aide 5 minutes.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je simplifie le menu pour sauver la soiree sans stress.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
           }
         }
       ]
     },
     {
       "id": 3,
-      "contexte": "quotidien",
-      "prompt": "Le groupe n arrive pas a choisir entre pizza, pates et soupe.",
+      "prompt": "Clairouille appelle \"\"On est dans le coin, on passe vous faire un coucou dans 10 minutes\"\" alors que rien n'est rangé !",
       "options": [
         {
           "id": "a",
-          "label": "Je choisis pizza et j appelle, debat termine.",
+          "label": "Je débarasse ce qui saute aux yeux en mode sprint.",
           "weights": {
             "red": 4,
             "yellow": 2,
@@ -154,27 +121,17 @@
         },
         {
           "id": "b",
-          "label": "Je reformule le dilemme et je fais voter calmement.",
+          "label": "Je laisse tomber le rangement et prépare plutôt l'apéro",
           "weights": {
-            "red": 2,
+            "red": 0,
             "yellow": 4,
-            "green": 1,
-            "blue": 1
+            "green": 4,
+            "blue": 0
           }
         },
         {
           "id": "c",
-          "label": "Je verifie les budgets et les regimes de chacun.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je compare prix, delai, vaisselle et restes possibles.",
+          "label": "Je range les pièces stratégiques (salon, cuisine) et laisse tomber les autres",
           "weights": {
             "red": 1,
             "yellow": 1,
@@ -183,8 +140,8 @@
           }
         },
         {
-          "id": "e",
-          "label": "Je lance un duel minute: deux finalistes, un gagnant.",
+          "id": "d",
+          "label": "Je recrute les enfants pour m'aider.",
           "weights": {
             "red": 3,
             "yellow": 3,
@@ -193,12 +150,12 @@
           }
         },
         {
-          "id": "f",
-          "label": "Je prends l option la plus simple a partager.",
+          "id": "e",
+          "label": "Je fais un rangement malin: paniers, plaid, lumière tamisée.",
           "weights": {
             "red": 1,
-            "yellow": 2,
-            "green": 3,
+            "yellow": 3,
+            "green": 2,
             "blue": 3
           }
         }
@@ -206,75 +163,7 @@
     },
     {
       "id": 4,
-      "contexte": "sortie",
-      "prompt": "Ton ami annonce \"je passe dans 10 minutes\" alors que rien n est range.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je debarasse ce qui saute aux yeux en mode sprint.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je lui envoie un message drole pour gagner 5 minutes.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je cache le bazar sensible et je garde l accueil sympa.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je fais une checklist eclair: salon, table, salle de bain.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je recrute la premiere personne dispo pour m aider.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je fais un rangement malin: paniers, plaid, lumiere tamisee.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "contexte": "quotidien",
-      "prompt": "La playlist part de metal a berceuse en 12 secondes.",
+      "prompt": "La playlist part de métal à berceuse en 12 secondes.",
       "options": [
         {
           "id": "a",
@@ -298,17 +187,7 @@
         },
         {
           "id": "c",
-          "label": "Je verifie si quelqu un deteste vraiment ce qui passe.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je trie les morceaux par energie pour eviter les montagnes russes.",
+          "label": "Je vérifie chaque morceau de la playlist pour eviter les montagnes russes.",
           "weights": {
             "red": 1,
             "yellow": 1,
@@ -317,56 +196,9 @@
           }
         },
         {
-          "id": "e",
+          "id": "d",
           "label": "Je propose un tour de table: chacun ajoute un titre.",
           "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je mets une playlist fiable qui ne choque personne.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "contexte": "sortie",
-      "prompt": "Quelqu un monopolise le canape et la telecommande depuis 1 heure.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je recadre net: on tourne, chacun son quart d heure.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je detends le truc avec une vanne et je redistribue.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je m assure que les plus timides aient aussi une place.",
-          "weights": {
             "red": 1,
             "yellow": 2,
             "green": 4,
@@ -374,117 +206,29 @@
           }
         },
         {
-          "id": "d",
-          "label": "Je propose une regle claire: ordre de passage affiche.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
           "id": "e",
-          "label": "Je lance un mini-jeu pour faire bouger tout le monde.",
+          "label": "Je demande à Amel de nous lancer une playlist fiable qui ne choque personne.",
           "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je trouve une organisation tranquille pour eviter la friction.",
-          "weights": {
-            "red": 1,
+            "red": 0,
             "yellow": 2,
             "green": 3,
-            "blue": 3
+            "blue": 2
           }
         }
       ]
     },
     {
-      "id": 7,
-      "contexte": "quotidien",
-      "prompt": "La machine a laver finit au moment ou tu devais partir.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je change mes priorites: lessive et depart en acceleration.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je previens l equipe de mon retard avec une touche drole.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je demande qui peut m aider sans tout chambouler.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je separe urgent/non urgent et j execute dans l ordre.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je lance une operation eclair: pliage collectif 4 minutes.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je securise le minimum: linge et tenue utile, le reste attend.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "contexte": "sortie",
-      "prompt": "Il reste un seul parapluie pour trois personnes.",
+      "id": 5,
+      "prompt": "Châteaux de la Loire sous la pluie avec un seul parapluie pour 3 personnes.",
       "options": [
         {
           "id": "a",
           "label": "Je decide qui prend le parapluie et on file.",
           "weights": {
-            "red": 4,
-            "yellow": 2,
+            "red": 5,
+            "yellow": 0,
             "green": 1,
-            "blue": 1
+            "blue": 2
           }
         },
         {
@@ -499,17 +243,17 @@
         },
         {
           "id": "c",
-          "label": "Je verifie qui est le plus sensible a la pluie.",
+          "label": "Je fais des équipes adultes/enfants pour abriter les plus petits",
           "weights": {
-            "red": 1,
+            "red": 0,
             "yellow": 2,
             "green": 4,
-            "blue": 1
+            "blue": 2
           }
         },
         {
           "id": "d",
-          "label": "Je calcule trajet couvert, abris, et temps de marche.",
+          "label": "Je vérifie Météo France et propose de visiter le chateau avant les jardins en fonction de l'accalmie.",
           "weights": {
             "red": 1,
             "yellow": 1,
@@ -519,34 +263,23 @@
         },
         {
           "id": "e",
-          "label": "Je lance un plan collectif: capuches, sacs, sprint coordonne.",
+          "label": "Je lance un plan collectif: capuches, sacs, sprint coordonné.",
           "weights": {
             "red": 3,
             "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je choisis le trajet le plus sec meme s il est un peu plus long.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
+            "green": 0,
+            "blue": 2
           }
         }
       ]
     },
     {
-      "id": 9,
-      "contexte": "quotidien",
-      "prompt": "Tu dois organiser un covoiturage avec des gens jamais ponctuels.",
+      "id": 6,
+      "prompt": "Vacances au ski à 25, cours de ski à 9h.",
       "options": [
         {
           "id": "a",
-          "label": "Je fixe un horaire ferme et je pars a l heure dite.",
+          "label": "Je fixe un horaire ferme et je pars à l'heure dite.",
           "weights": {
             "red": 4,
             "yellow": 2,
@@ -556,17 +289,17 @@
         },
         {
           "id": "b",
-          "label": "Je motive le groupe avec un ton leger mais clair.",
+          "label": "Je triche sur les horaires pour faire croire que les cours commencent 15 minutes plus tôt que prévu.",
           "weights": {
             "red": 2,
             "yellow": 4,
-            "green": 1,
-            "blue": 1
+            "green": 0,
+            "blue": 2
           }
         },
         {
           "id": "c",
-          "label": "Je prevois une marge pour ceux qui galeres vraiment.",
+          "label": "Je vois avec les ados pour qu'ils puissent aider les petits à se préparer.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -576,40 +309,29 @@
         },
         {
           "id": "d",
-          "label": "Je fais tableau des places, points de rendez-vous, horaires.",
+          "label": "Je fais un schéma de la répartition dans les voitures avec des post-its.",
           "weights": {
             "red": 1,
-            "yellow": 1,
-            "green": 2,
+            "yellow": 2,
+            "green": 1,
             "blue": 4
           }
         },
         {
           "id": "e",
-          "label": "Je lance un rappel collectif a J-1 et H-1.",
+          "label": "Je lance un rappel collectif a H-1 et H-30 min",
           "weights": {
             "red": 3,
             "yellow": 3,
             "green": 1,
             "blue": 1
           }
-        },
-        {
-          "id": "f",
-          "label": "Je mets un plan sobre qui marche meme avec un retard.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
         }
       ]
     },
     {
-      "id": 10,
-      "contexte": "sortie",
-      "prompt": "Le voisin sonne: \"on vous entend chanter Dalida tres fort\".",
+      "id": 7,
+      "prompt": "Le voisin sonne: \"\"on vous entend chanter Chop Suey très fort\"\".",
       "options": [
         {
           "id": "a",
@@ -623,17 +345,17 @@
         },
         {
           "id": "b",
-          "label": "Je desamorce avec le sourire et je negocie un compromis.",
+          "label": "Je desamorce avec le sourire en demandant si il est fan de System of a Down, et je negocie un compromis.",
           "weights": {
             "red": 2,
             "yellow": 4,
-            "green": 1,
-            "blue": 1
+            "green": 2,
+            "blue": 0
           }
         },
         {
           "id": "c",
-          "label": "Je m excuse proprement pour garder de bonnes relations.",
+          "label": "Je m'excuse proprement pour garder de bonnes relations.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -663,7 +385,7 @@
         },
         {
           "id": "f",
-          "label": "Je passe a une ambiance calme qui sauve la soiree et la paix.",
+          "label": "Je passe à une ambiance calme qui sauve la soiree et la paix.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -674,344 +396,8 @@
       ]
     },
     {
-      "id": 11,
-      "contexte": "quotidien",
-      "prompt": "Le chat renverse un verre sur les cartes du jeu de societe.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je sauve les cartes maintenant, le chat passera ensuite.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je transforme l accident en moment comique pour detendre.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je verifie que personne ne se sente accuse ou fache.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je trie les cartes seches/humides et j organise le sechage.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je lance une mission torchon express avec l equipe.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je propose un autre jeu pendant que ca seche tranquillement.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "contexte": "sortie",
-      "prompt": "Il manque une chaise et tout le monde regarde la meme chaise.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je prends une decision immediate sur la rotation des places.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je propose un systeme sympa sans vexer personne.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je veille a ce que la personne fatiguee soit prioritaire.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je reorganise la table pour gagner une place utile.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je lance un jeu debout 10 minutes pour debloquer.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je trouve une solution confortable et stable pour la suite.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 13,
-      "contexte": "quotidien",
-      "prompt": "Le dessert colle au moule au moment de servir.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je demoule a la truelle, style rustique assume.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je raconte la scene en mode stand-up pour sauver l ambiance.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je demande ce que chacun accepte: gateau casse ou plan B.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je teste eau chaude, couteau fin, et repartition des parts.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je lance un atelier custom: creme, fruits, topping pour tous.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je transforme en verrines simples, ni vu ni connu.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "contexte": "sortie",
-      "prompt": "Un ami dit \"je viens avec un plus un\" au dernier moment.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je valide ou refuse tout de suite pour clarifier.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je gere l annonce avec tact pour garder la bonne humeur.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je verifie que personne ne se sente mis de cote.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je regarde capacite, nourriture, places et timing.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je redistribue les roles pour absorber la personne en plus.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je propose une version alliee: simple, accueillante, sans tension.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "contexte": "quotidien",
-      "prompt": "Le groupe hesite depuis trop longtemps sur l heure de depart.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je fixe une heure limite et je m y tiens.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je reformule les options et j embarque le groupe.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je tiens compte des contraintes de ceux qui en ont vraiment.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je pose un horaire principal et un horaire tampon.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je lance un compte a rebours de decision de 2 minutes.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je choisis l horaire le plus robuste pour tout le monde.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "contexte": "sortie",
-      "prompt": "La batterie de ton telephone est a 3 pourcent avant la soiree.",
+      "id": 8,
+      "prompt": "La batterie de ton telephone est à 3 pourcent avant la soiree.",
       "options": [
         {
           "id": "a",
@@ -1025,7 +411,7 @@
         },
         {
           "id": "b",
-          "label": "Je demande un chargeur autour de moi avec humour.",
+          "label": "Je demande une powerbank autour de moi avec humour.",
           "weights": {
             "red": 2,
             "yellow": 4,
@@ -1035,7 +421,7 @@
         },
         {
           "id": "c",
-          "label": "Je m assure que mes proches sachent comment me joindre.",
+          "label": "Je m'assure que mes proches sachent comment me joindre.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -1055,16 +441,6 @@
         },
         {
           "id": "e",
-          "label": "Je mets le groupe en mode partage de batterie/chargeur.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
           "label": "Je prevois un plan sans telephone pour ne pas dependre du 3 pourcent.",
           "weights": {
             "red": 1,
@@ -1076,142 +452,7 @@
       ]
     },
     {
-      "id": 17,
-      "contexte": "quotidien",
-      "prompt": "Quelqu un a oublie de reserver et le resto est complet.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je choisis un autre lieu tout de suite et on bouge.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je garde le moral du groupe pendant qu on pivote.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je verifie que l option B convienne a tous.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je compare attente, distance, budget et taille du groupe.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je lance une reconnaissance eclair: deux personnes cherchent.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je prends une option fiable plutot que parfaite.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 18,
-      "contexte": "sortie",
-      "prompt": "On te demande de faire le discours d anniversaire sans preparation.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je prends le micro direct avec un message court et net.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je fais rire la salle et je relie tout le monde.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je mets d abord a l aise la personne fetee.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je structure en 3 points: souvenir, qualite, toast.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je propose un toast collectif pour embarquer tout le monde.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je reste simple, sincere, et sans en faire trop.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 19,
-      "contexte": "quotidien",
+      "id": 9,
       "prompt": "Une personne boude dans un coin sans expliquer pourquoi.",
       "options": [
         {
@@ -1226,7 +467,7 @@
         },
         {
           "id": "b",
-          "label": "Je brise la glace avec une entree legere.",
+          "label": "Je brise la glace avec une entree légère.",
           "weights": {
             "red": 2,
             "yellow": 4,
@@ -1236,7 +477,7 @@
         },
         {
           "id": "c",
-          "label": "Je privilegie l ecoute pour comprendre sans pression.",
+          "label": "Je privilegie l'écoute pour comprendre sans pression.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -1277,75 +518,7 @@
       ]
     },
     {
-      "id": 20,
-      "contexte": "sortie",
-      "prompt": "Le trajet retour se transforme en puzzle de bus rates.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Je decide un itineraire principal et on s y colle.",
-          "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "b",
-          "label": "Je garde le groupe motive pendant le chaos des horaires.",
-          "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "c",
-          "label": "Je m assure que personne ne rentre seul sans solution.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 4,
-            "blue": 1
-          }
-        },
-        {
-          "id": "d",
-          "label": "Je recalcule correspondances et alternatives en direct.",
-          "weights": {
-            "red": 1,
-            "yellow": 1,
-            "green": 2,
-            "blue": 4
-          }
-        },
-        {
-          "id": "e",
-          "label": "Je monte des binomes pour avancer plus vite.",
-          "weights": {
-            "red": 3,
-            "yellow": 3,
-            "green": 1,
-            "blue": 1
-          }
-        },
-        {
-          "id": "f",
-          "label": "Je choisis l option la plus sure meme si c est moins glamour.",
-          "weights": {
-            "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 21,
-      "contexte": "quotidien",
+      "id": 10,
       "prompt": "Le gateau est superbe dehors et liquide dedans.",
       "options": [
         {
@@ -1370,7 +543,7 @@
         },
         {
           "id": "c",
-          "label": "Je demande qui prefere attendre ou changer de dessert.",
+          "label": "Je demande qui prefère attendre ou changer de dessert.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -1390,7 +563,7 @@
         },
         {
           "id": "e",
-          "label": "Je lance un plan B gourmand pendant la recuisson.",
+          "label": "Je sors chocolats et digestifs pendant la recuisson.",
           "weights": {
             "red": 3,
             "yellow": 3,
@@ -1411,13 +584,12 @@
       ]
     },
     {
-      "id": 22,
-      "contexte": "sortie",
-      "prompt": "On te passe le micro du karaoke alors que tu ne connais pas la chanson.",
+      "id": 11,
+      "prompt": "Tout le monde veut tester le nouveau jeu \"\"Hantise\"\" mais personne ne lit les règles.",
       "options": [
         {
           "id": "a",
-          "label": "Je prends quand meme le micro et j assume le freestyle.",
+          "label": "Je lance le jeu, on découvrira en jouant.",
           "weights": {
             "red": 4,
             "yellow": 2,
@@ -1427,17 +599,17 @@
         },
         {
           "id": "b",
-          "label": "Je fais chanter la salle pour couvrir mes trous de memoire.",
+          "label": "Je lis les règles simplifiées et explique de manière ludique avec des examples pour motiver tout le monde.",
           "weights": {
-            "red": 2,
+            "red": 0,
             "yellow": 4,
-            "green": 1,
-            "blue": 1
+            "green": 2,
+            "blue": 2
           }
         },
         {
           "id": "c",
-          "label": "Je propose de partager le micro avec quelqu un de partant.",
+          "label": "J'explique simplement pour vérifier que tout le monde y compris les enfants aient bien compris.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -1447,7 +619,7 @@
         },
         {
           "id": "d",
-          "label": "Je lis vite le refrain et je securise au moins les passages cles.",
+          "label": "Je me lance dans la lecture détaillée des règles avant de jouer.",
           "weights": {
             "red": 1,
             "yellow": 1,
@@ -1457,7 +629,7 @@
         },
         {
           "id": "e",
-          "label": "Je lance un duo improvise pour sauver la perf.",
+          "label": "Je lance la vidéo d'explication pour aller plus vite.",
           "weights": {
             "red": 3,
             "yellow": 3,
@@ -1467,7 +639,7 @@
         },
         {
           "id": "f",
-          "label": "Je choisis une chanson plus simple et je relance proprement.",
+          "label": "Faisons plutôt un Time's Up pour faire plus simple.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -1478,23 +650,22 @@
       ]
     },
     {
-      "id": 23,
-      "contexte": "quotidien",
-      "prompt": "Le groupe veut faire un jeu, mais personne ne lit les regles.",
+      "id": 12,
+      "prompt": "Fin des vacances à Champagny, il faut ranger.",
       "options": [
         {
           "id": "a",
-          "label": "Je distribue les roles et on joue, explication minimale.",
+          "label": "Je donne des missions claires a chacun.",
           "weights": {
             "red": 4,
-            "yellow": 2,
+            "yellow": 1,
             "green": 1,
-            "blue": 1
+            "blue": 2
           }
         },
         {
           "id": "b",
-          "label": "Je raconte les regles en mode sketch pour capter tout le monde.",
+          "label": "Je motive tout le monde en lancant la playlist \"\"Tais-toi et lave\"\" de Tibal",
           "weights": {
             "red": 2,
             "yellow": 4,
@@ -1504,7 +675,7 @@
         },
         {
           "id": "c",
-          "label": "Je veille a ce que debutants et timides suivent aussi.",
+          "label": "Je vais aider les enfants à faire leurs sacs.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -1514,7 +685,63 @@
         },
         {
           "id": "d",
-          "label": "Je fais un tour test avec exemples concrets.",
+          "label": "Je range méthodiquement pièce par pièce et remets les matelas en place selon l'état des lieux de départ",
+          "weights": {
+            "red": 1,
+            "yellow": 0,
+            "green": 1,
+            "blue": 5
+          }
+        },
+        {
+          "id": "e",
+          "label": "On s'active, plus tôt on aura terminé plus vite on pourra aller skier.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Vous devez choisir un jeu de societe et tout le monde crie un titre different.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je propose deux choix finaux et on decide.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je fais un tour de table rapide pour ecouter tout le monde.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 2,
+            "blue": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je pense aux plus jeunes pour que ce soit adapte.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je regarde durée et règles avant de trancher.",
           "weights": {
             "red": 1,
             "yellow": 1,
@@ -1524,17 +751,17 @@
         },
         {
           "id": "e",
-          "label": "Je lance une manche d essai chronometree pour apprendre vite.",
+          "label": "Je propose un jeu d'ambiance genre Time's Up pour fédérer tout le monde",
           "weights": {
-            "red": 3,
+            "red": 2,
             "yellow": 3,
-            "green": 1,
-            "blue": 1
+            "green": 3,
+            "blue": 0
           }
         },
         {
           "id": "f",
-          "label": "Je choisis un jeu plus simple pour eviter la prise de tete.",
+          "label": "Je prends le jeu le plus simple à expliquer.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -1545,13 +772,12 @@
       ]
     },
     {
-      "id": 24,
-      "contexte": "sortie",
-      "prompt": "Tu as 15 messages \"on apporte quoi ?\" a 30 minutes du diner.",
+      "id": 14,
+      "prompt": "Filip pleure car son dessin s'est déchiré.",
       "options": [
         {
           "id": "a",
-          "label": "Je reponds avec une liste fermee: chacun prend une mission.",
+          "label": "Je lui dis qu'on va le recoller tout de suite.",
           "weights": {
             "red": 4,
             "yellow": 2,
@@ -1561,7 +787,7 @@
         },
         {
           "id": "b",
-          "label": "Je reformule en message unique clair et motivant.",
+          "label": "Je lui fais une blague douce pour lui redonner le sourire.",
           "weights": {
             "red": 2,
             "yellow": 4,
@@ -1571,7 +797,7 @@
         },
         {
           "id": "c",
-          "label": "Je m assure qu on n oublie ni eau, ni option veggie, ni pain.",
+          "label": "Je l'écoute avant de proposer une solution.",
           "weights": {
             "red": 1,
             "yellow": 2,
@@ -1581,7 +807,7 @@
         },
         {
           "id": "d",
-          "label": "Je centralise dans un recap precis avec quantites.",
+          "label": "Je cherche scotch, feuille et feutres pour reparer proprement.",
           "weights": {
             "red": 1,
             "yellow": 1,
@@ -1591,7 +817,7 @@
         },
         {
           "id": "e",
-          "label": "Je lance un tableau express pour combler les trous.",
+          "label": "Je propose de faire ensemble une version 2 encore plus drôle.",
           "weights": {
             "red": 3,
             "yellow": 3,
@@ -1601,11 +827,463 @@
         },
         {
           "id": "f",
-          "label": "Je simplifie: menu court, courses minimales, execution rapide.",
+          "label": "Je l aide calmement a refaire le dessin pas a pas.",
           "weights": {
             "red": 1,
             "yellow": 2,
             "green": 3,
+            "blue": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "Chasse au tresor à Cronat, votre equipe est perdue.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je choisis une direction et on avance.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je garde l'equipe motivee avec une idée fun.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je verifie que personne ne reste derriere.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je relis l'indice et je note les details importants.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je propose de séparer rôles: lecture, observation, memoire.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je prends le chemin le plus simple pour retrouver un repère.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "Au loup-garou, personne ne veut faire maître du jeu.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je m'auto-proclamme maître du jeu et on commence.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 2,
+            "blue": 0
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je propose de faire tourner le role à chaque manche.",
+          "weights": {
+            "red": 0,
+            "yellow": 3,
+            "green": 2,
+            "blue": 3
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je demande si quelqu un n'ose pas mais aimerait essayer.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je relis les règles pour voir si on ne peut pas faire jouer le maître du jeu",
+          "weights": {
+            "red": 1,
+            "yellow": 0,
+            "green": 3,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je lance un pile ou face pour choisir le premier arbitre.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je propose que ça soit Lexou pour que ça soit plus facile, de toute façon il mourra au premier tour ;)",
+          "weights": {
+            "red": 2,
+            "yellow": 3,
+            "green": 0,
+            "blue": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "Week-end à Cronat, mais pluie toute la journée.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je propose un cache cache sardine tout de suite.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je transforme ca en \"\"journee speciale pluie\"\" avec blind test, chasse au trésor et tournoi de Codenames.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "On pourrait faire activité calme dans le salon, blind test dans la salle à manger et gros jeu dans la pièce avec la cheminée pour que chacun y trouve son compte ? ",
+          "weights": {
+            "red": 0,
+            "yellow": 1,
+            "green": 4,
+            "blue": 3
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je sors les jeux de société en les classant par type, nombre de joueurs et durée",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je lance un vote rapide pour choisir l activite.",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je vais me poser avec un bouquin",
+          "weights": {
+            "red": 0,
+            "yellow": 0,
+            "green": 4,
+            "blue": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "prompt": "Au Montana, il n'y a plus de fondue à la tomate, ton plat préféré.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je choisis vite autre chose et j'avance.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je fais une blague sur cette tragédie.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je regarde si un copain veut partager une tomate et une cèpes avec moi sans forcer.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je compare les options restantes avant de choisir.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je propose un classement collectif des meilleures fondues.",
+          "weights": {
+            "red": 2,
+            "yellow": 3,
+            "green": 1,
+            "blue": 2
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je me rabats sur une fondue classique, option sûre.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "Nouvel an karaoké, coupure de courant, tout s'arrête.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je lance direct une nouvelle chanson depuis mon téléphone",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je fais chanter le groupe a capella en attendant.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je verifie que les petits n'aient pas peur dans le noir",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je pars contrôler les plombs, et relance sono et ordi",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je propose un jeu \"\"N'oubliez pas les paroles\"\"",
+          "weights": {
+            "red": 3,
+            "yellow": 3,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je passe à une activite calme pendant la réparation.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 3,
+            "blue": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "prompt": "Rando dans le Jura mais Houta vient d'attraper la chaussette de Zoé pour la manger.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je recupere la chaussette direct en mode capitaine.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je fais rire tout le monde pour éviter la panique.",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je regarde qui peut prêter une chaussette de secours.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 4,
+            "blue": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je cherche le numéro du vétérinaire d'urgence au cas où",
+          "weights": {
+            "red": 1,
+            "yellow": 0,
+            "green": 3,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je lance une mission eclair: un distrait le chien, un recupere.",
+          "weights": {
+            "red": 2,
+            "yellow": 2,
+            "green": 1,
+            "blue": 3
+          }
+        },
+        {
+          "id": "f",
+          "label": "Je vais carresser Houta pour la calmer et lui faire rendre la chaussette.",
+          "weights": {
+            "red": 0,
+            "yellow": 3,
+            "green": 4,
+            "blue": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "Ton equipe a perdu à la première manche du Time's Up et certains accusent les autres.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Je coupe les reproches et je relance le jeu.",
+          "weights": {
+            "red": 4,
+            "yellow": 2,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "Je remotive avec un \"\"on reste ensemble\"\".",
+          "weights": {
+            "red": 2,
+            "yellow": 4,
+            "green": 1,
+            "blue": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "Je calme celui qui est le plus touché.",
+          "weights": {
+            "red": 1,
+            "yellow": 2,
+            "green": 5,
+            "blue": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "Je rappelle la règle et ce qui s'est passé vraiment.",
+          "weights": {
+            "red": 1,
+            "yellow": 1,
+            "green": 2,
+            "blue": 4
+          }
+        },
+        {
+          "id": "e",
+          "label": "Je propose une tactique collective pour le point suivant.",
+          "weights": {
+            "red": 2,
+            "yellow": 2,
+            "green": 2,
             "blue": 3
           }
         }

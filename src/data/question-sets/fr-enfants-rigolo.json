@@ -12,20 +12,20 @@
           "id": "a",
           "label": "Je propose un sujet tout de suite pour demarrer.",
           "weights": {
-            "red": 4,
-            "yellow": 2,
-            "green": 1,
-            "blue": 1
+            "red": 5,
+            "yellow": 3,
+            "green": 0,
+            "blue": 0
           }
         },
         {
           "id": "b",
           "label": "Je demande les idees de chacun avant de choisir.",
           "weights": {
-            "red": 2,
-            "yellow": 4,
-            "green": 1,
-            "blue": 1
+            "red": 3,
+            "yellow": 2,
+            "green": 3,
+            "blue": 0
           }
         },
         {
@@ -40,7 +40,7 @@
         },
         {
           "id": "d",
-          "label": "Je fais un petit plan: intro, images, conclusion.",
+          "label": "Je propose une idee qui plaira au prof interessera les eleves",
           "weights": {
             "red": 1,
             "yellow": 1,
@@ -52,20 +52,20 @@
           "id": "e",
           "label": "Je lance un vote rapide a main levee.",
           "weights": {
-            "red": 3,
+            "red": 2,
             "yellow": 3,
-            "green": 1,
+            "green": 2,
             "blue": 1
           }
         },
         {
           "id": "f",
-          "label": "Je prends le sujet le plus simple a faire ensemble.",
+          "label": "Je laisse les autre decider du sujet et commence a faire le plan de la presentation",
           "weights": {
             "red": 1,
-            "yellow": 2,
-            "green": 3,
-            "blue": 3
+            "yellow": 0,
+            "green": 2,
+            "blue": 5
           }
         }
       ]
@@ -117,7 +117,7 @@
         },
         {
           "id": "e",
-          "label": "Je lance un defis rigolo: premier a 3 passes gagne le prochain tour.",
+          "label": "Je lance un defi rigolo: premier a 3 passes gagne le prochain tour.",
           "weights": {
             "red": 3,
             "yellow": 3,

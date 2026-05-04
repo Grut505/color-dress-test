@@ -15,6 +15,7 @@ type Scores = Record<ColorKey, number>
 type AnswerRecord = {
   questionId: number
   prompt: string
+  optionId: string
   choiceLabel: string
 }
 
@@ -23,6 +24,7 @@ type SavedResult = {
   sorted: [ColorKey, number][]
   percentages: Record<ColorKey, number>
   answers: AnswerRecord[]
+  quizQuestions?: Question[]
 }
 
 type InProgressSession = {
@@ -39,8 +41,8 @@ const QUESTIONS_PER_RUN = 12
 const SCORE_DISCRIMINATION_BOOST = 1.02
 
 const audienceOptions = [
-  { id: 'fr-enfants-rigolo', label: 'Enfant' },
-  { id: 'fr-terreaterre-rigolo', label: 'Adulte' },
+  { id: 'fr-enfants-rigolo', label: 'Mode Enfant' },
+  { id: 'fr-terreaterre-rigolo', label: 'Mode Adulte' },
 ] as const
 
 const DEFAULT_AUDIENCE_SET_ID = 'fr-terreaterre-rigolo'
@@ -191,6 +193,44 @@ function getStorageKey(baseKey: string, setId: string) {
   return `${baseKey}:${setId}`
 }
 
+function computeScoresFromAnswers(answerRecords: AnswerRecord[], sourceQuestions: Question[]): Scores {
+  const scoreMap: Scores = { ...initialScores }
+
+  for (const answer of answerRecords) {
+    const question = sourceQuestions.find((item) => item.id === answer.questionId)
+    if (!question) continue
+
+    const selectedOption = question.options.find((option) => option.id === answer.optionId)
+    if (!selectedOption) continue
+
+    const optionCount = question.options.length
+    const averageWeights: ColorWeights = question.options.reduce(
+      (acc, currentOption) => ({
+        red: acc.red + currentOption.weights.red / optionCount,
+        yellow: acc.yellow + currentOption.weights.yellow / optionCount,
+        green: acc.green + currentOption.weights.green / optionCount,
+        blue: acc.blue + currentOption.weights.blue / optionCount,
+      }),
+      { red: 0, yellow: 0, green: 0, blue: 0 },
+    )
+
+    scoreMap.red += (selectedOption.weights.red - averageWeights.red) * SCORE_DISCRIMINATION_BOOST
+    scoreMap.yellow += (selectedOption.weights.yellow - averageWeights.yellow) * SCORE_DISCRIMINATION_BOOST
+    scoreMap.green += (selectedOption.weights.green - averageWeights.green) * SCORE_DISCRIMINATION_BOOST
+    scoreMap.blue += (selectedOption.weights.blue - averageWeights.blue) * SCORE_DISCRIMINATION_BOOST
+  }
+
+  return scoreMap
+}
+
+function canEditSavedResult(savedResult: SavedResult | null): savedResult is SavedResult & { quizQuestions: Question[] } {
+  if (!savedResult?.quizQuestions?.length) {
+    return false
+  }
+
+  return savedResult.answers.every((answer) => typeof answer.optionId === 'string' && answer.optionId.length > 0)
+}
+
 function App() {
   const [selectedSetId, setSelectedSetId] = useState(() => {
     const hasActiveOption = audienceOptions.some((option) => option.id === activeQuestionSetMeta.id)
@@ -206,6 +246,9 @@ function App() {
   const [savedResult, setSavedResult] = useState<SavedResult | null>(null)
   const [showingSavedResult, setShowingSavedResult] = useState(false)
   const [inProgressSession, setInProgressSession] = useState<InProgressSession | null>(null)
+  const [isEditingAnswers, setIsEditingAnswers] = useState(false)
+  const [editableQuestions, setEditableQuestions] = useState<Question[]>([])
+  const [editableAnswers, setEditableAnswers] = useState<AnswerRecord[]>([])
 
   const resultStorageKey = useMemo(() => getStorageKey(STORAGE_KEY, selectedSetId), [selectedSetId])
   const inProgressStorageKey = useMemo(() => getStorageKey(IN_PROGRESS_KEY, selectedSetId), [selectedSetId])
@@ -265,9 +308,27 @@ function App() {
   const resultSorted = showingSavedResult && savedResult ? savedResult.sorted : liveSorted
   const resultAnswers = showingSavedResult && savedResult ? savedResult.answers : answers
 
-  const dominant = resultSorted[0][0]
-  const secondary = resultSorted[1][0]
-  const summary = useMemo(() => buildSummary(resultSorted), [resultSorted])
+  const editedScores = useMemo(() => {
+    if (!isEditingAnswers) return null
+    return computeScoresFromAnswers(editableAnswers, editableQuestions)
+  }, [isEditingAnswers, editableAnswers, editableQuestions])
+
+  const editedPercentages = useMemo(() => {
+    if (!editedScores) return null
+    return toPercentages(editedScores)
+  }, [editedScores])
+
+  const editedSorted = useMemo(() => {
+    if (!editedPercentages) return null
+    return (Object.entries(editedPercentages) as [ColorKey, number][]).sort((a, b) => b[1] - a[1])
+  }, [editedPercentages])
+
+  const displaySorted = isEditingAnswers && editedSorted ? editedSorted : resultSorted
+  const displayAnswers = isEditingAnswers ? editableAnswers : resultAnswers
+
+  const dominant = displaySorted[0][0]
+  const secondary = displaySorted[1][0]
+  const summary = useMemo(() => buildSummary(displaySorted), [displaySorted])
   const outfit = useMemo(() => buildOutfitAdvice(dominant, secondary), [dominant, secondary])
 
   useEffect(() => {
@@ -280,6 +341,7 @@ function App() {
       sorted: liveSorted,
       percentages: livePercentages,
       answers,
+      quizQuestions,
     }
 
     localStorage.setItem(resultStorageKey, JSON.stringify(snapshot))
@@ -319,6 +381,7 @@ function App() {
     setScores(initialScores)
     setAnswers([])
     setShowingSavedResult(false)
+    setIsEditingAnswers(false)
   }
 
   function viewLastSavedResult() {
@@ -335,6 +398,7 @@ function App() {
     setScores(inProgressSession.scores)
     setAnswers(inProgressSession.answers)
     setShowingSavedResult(false)
+    setIsEditingAnswers(false)
     setPhase('quiz')
   }
 
@@ -346,6 +410,63 @@ function App() {
   function goHome() {
     setPhase('intro')
     setShowingSavedResult(false)
+    setIsEditingAnswers(false)
+  }
+
+  function startEditingAnswers() {
+    if (showingSavedResult) {
+      if (!canEditSavedResult(savedResult)) return
+      setEditableQuestions(savedResult.quizQuestions)
+      setEditableAnswers(savedResult.answers)
+      setIsEditingAnswers(true)
+      return
+    }
+
+    setEditableQuestions(quizQuestions)
+    setEditableAnswers(answers)
+    setIsEditingAnswers(true)
+  }
+
+  function cancelEditingAnswers() {
+    setIsEditingAnswers(false)
+    setEditableQuestions([])
+    setEditableAnswers([])
+  }
+
+  function updateEditedAnswer(questionId: number, option: Option) {
+    setEditableAnswers((prev) =>
+      prev.map((answer) =>
+        answer.questionId === questionId
+          ? {
+              ...answer,
+              optionId: option.id,
+              choiceLabel: option.label,
+            }
+          : answer,
+      ),
+    )
+  }
+
+  function saveEditedResult() {
+    if (!editedScores || !editedPercentages || !editedSorted) return
+
+    const updatedAnswers = editableAnswers
+    const updatedQuestions = editableQuestions
+    const snapshot: SavedResult = {
+      createdAt: new Date().toISOString(),
+      sorted: editedSorted,
+      percentages: editedPercentages,
+      answers: updatedAnswers,
+      quizQuestions: updatedQuestions,
+    }
+
+    setScores(editedScores)
+    setQuizQuestions(updatedQuestions)
+    setAnswers(updatedAnswers)
+    setSavedResult(snapshot)
+    setShowingSavedResult(false)
+    localStorage.setItem(resultStorageKey, JSON.stringify(snapshot))
+    cancelEditingAnswers()
   }
 
   function answerQuestion(option: Option) {
@@ -369,7 +490,10 @@ function App() {
       blue: prev.blue + (selectedWeights.blue - averageWeights.blue) * SCORE_DISCRIMINATION_BOOST,
     }))
 
-    setAnswers((prev) => [...prev, { questionId: currentQuestion.id, prompt: currentQuestion.prompt, choiceLabel: option.label }])
+    setAnswers((prev) => [
+      ...prev,
+      { questionId: currentQuestion.id, prompt: currentQuestion.prompt, optionId: option.id, choiceLabel: option.label },
+    ])
 
     if (step === quizQuestions.length - 1) {
       setShowingSavedResult(false)
@@ -397,14 +521,21 @@ function App() {
               et une proposition de tenue simple.
             </p>
             <div className="set-picker">
-              <label htmlFor="set-select">Choisis ton mode</label>
-              <select id="set-select" value={selectedSetId} onChange={(event) => setSelectedSetId(event.target.value)}>
+              <p className="set-label">Choisis ton mode</p>
+              <div className="mode-toggle" role="radiogroup" aria-label="Choix du mode">
                 {audienceOptions.map((audience) => (
-                  <option key={audience.id} value={audience.id}>
+                  <button
+                    key={audience.id}
+                    type="button"
+                    role="radio"
+                    aria-checked={selectedSetId === audience.id}
+                    className={`mode-toggle-option ${selectedSetId === audience.id ? 'active' : ''}`}
+                    onClick={() => setSelectedSetId(audience.id)}
+                  >
                     {audience.label}
-                  </option>
+                  </button>
                 ))}
-              </select>
+              </div>
             </div>
             <div className="intro-actions">
               <button className="primary-btn" onClick={startQuiz}>
@@ -466,11 +597,11 @@ function App() {
               <p className="saved-meta">Résultat sauvegardé le {formatSavedDate(savedResult.createdAt)}.</p>
             )}
 
-            <div className="distribution">
-              {resultSorted.map(([key, value]) => (
-                <article className="bar-row" key={key}>
-                  <div className="bar-label">
-                    <span>{colorMeta[key].label}</span>
+              <div className="distribution">
+                {displaySorted.map(([key, value]) => (
+                  <article className="bar-row" key={key}>
+                    <div className="bar-label">
+                      <span>{colorMeta[key].label}</span>
                     <strong>{value}%</strong>
                   </div>
                   <div className="bar-bg" aria-hidden="true">
@@ -492,7 +623,7 @@ function App() {
             </article>
 
             <div className="grid">
-              {resultSorted.slice(0, 2).map(([key]) => (
+              {displaySorted.slice(0, 2).map(([key]) => (
                 <article className="profile-card" key={key}>
                   <h3 style={{ color: colorMeta[key].hex }}>{colorMeta[key].label}</h3>
                   <p>{colorMeta[key].traits}</p>
@@ -503,15 +634,64 @@ function App() {
 
             <article className="history-box">
               <h3>Tes réponses</h3>
-              <ol className="history-list">
-                {resultAnswers.map((item, index) => (
-                  <li key={`${item.questionId}-${index}`}>
-                    <p className="history-question">{item.prompt}</p>
-                    <p className="history-answer">{item.choiceLabel}</p>
-                  </li>
-                ))}
-              </ol>
+              {isEditingAnswers ? (
+                <ol className="history-list editable-history-list">
+                  {editableQuestions.map((question) => {
+                    const selected = editableAnswers.find((answer) => answer.questionId === question.id)
+
+                    return (
+                      <li key={question.id}>
+                        <p className="history-question">{question.prompt}</p>
+                        <div className="history-options" role="radiogroup" aria-label={`Réponses pour la question ${question.id}`}>
+                          {question.options.map((option) => (
+                            <button
+                              key={option.id}
+                              type="button"
+                              role="radio"
+                              aria-checked={selected?.optionId === option.id}
+                              className={`history-option-btn ${selected?.optionId === option.id ? 'active' : ''}`}
+                              onClick={() => updateEditedAnswer(question.id, option)}
+                            >
+                              {option.label}
+                            </button>
+                          ))}
+                        </div>
+                      </li>
+                    )
+                  })}
+                </ol>
+              ) : (
+                <ol className="history-list">
+                  {displayAnswers.map((item, index) => (
+                    <li key={`${item.questionId}-${index}`}>
+                      <p className="history-question">{item.prompt}</p>
+                      <p className="history-answer">{item.choiceLabel}</p>
+                    </li>
+                  ))}
+                </ol>
+              )}
             </article>
+
+            {isEditingAnswers ? (
+              <div className="intro-actions">
+                <button className="primary-btn" onClick={saveEditedResult}>
+                  Enregistrer ce résultat
+                </button>
+                <button className="secondary-btn" onClick={cancelEditingAnswers}>
+                  Annuler les changements
+                </button>
+              </div>
+            ) : (
+              <>
+                {showingSavedResult && !canEditSavedResult(savedResult) ? (
+                  <p className="saved-meta">Ce résultat ancien ne contient pas les données nécessaires pour modifier les réponses.</p>
+                ) : (
+                  <button className="secondary-btn" onClick={startEditingAnswers}>
+                    Modifier mes réponses
+                  </button>
+                )}
+              </>
+            )}
 
             <button className="primary-btn" onClick={startQuiz}>
               Refaire le test

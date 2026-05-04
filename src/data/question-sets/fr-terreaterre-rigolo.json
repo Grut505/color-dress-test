@@ -939,7 +939,7 @@
         },
         {
           "id": "d",
-          "label": "Je relis les règles pour voir si on ne peut pas faire jouer le maître du jeu",
+          "label": "Je relis les règles pour voir comment gérer ce cas",
           "weights": {
             "red": 1,
             "yellow": 0,

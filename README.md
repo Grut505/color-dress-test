@@ -53,6 +53,11 @@ Exemples:
 - URL: `http://localhost:5173/?set=fr-terreaterre-rigolo`
 - Env: creer un `.env.local` avec `VITE_QUESTION_SET=fr-enfants-rigolo`
 
+## Recette reutilisable pour generer des questions/reponses
+
+La recette complete est documentee dans `docs/recette-generation-questions.md`.
+Elle sert de reference pour ce projet et pour la creation de futurs tests.
+
 ## Lancer en local
 
 ```bash

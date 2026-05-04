@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import {
   activeQuestionSetMeta,
-  availableQuestionSetsMeta,
   getQuestionsBySetId,
   type ColorKey,
   type ColorWeights,
@@ -38,6 +37,13 @@ const STORAGE_KEY = 'color-dress-test:last-result'
 const IN_PROGRESS_KEY = 'color-dress-test:in-progress'
 const QUESTIONS_PER_RUN = 12
 const SCORE_DISCRIMINATION_BOOST = 1.02
+
+const audienceOptions = [
+  { id: 'fr-enfants-rigolo', label: 'Enfant' },
+  { id: 'fr-terreaterre-rigolo', label: 'Adulte' },
+] as const
+
+const DEFAULT_AUDIENCE_SET_ID = 'fr-terreaterre-rigolo'
 const PERCENTAGE_CONTRAST = 1.14
 
 const colorMeta: Record<ColorKey, { label: string; hex: string; traits: string; signal: string }> = {
@@ -186,7 +192,10 @@ function getStorageKey(baseKey: string, setId: string) {
 }
 
 function App() {
-  const [selectedSetId, setSelectedSetId] = useState(activeQuestionSetMeta.id)
+  const [selectedSetId, setSelectedSetId] = useState(() => {
+    const hasActiveOption = audienceOptions.some((option) => option.id === activeQuestionSetMeta.id)
+    return hasActiveOption ? activeQuestionSetMeta.id : DEFAULT_AUDIENCE_SET_ID
+  })
   const [phase, setPhase] = useState<Phase>('intro')
   const [step, setStep] = useState(0)
   const [scores, setScores] = useState<Scores>(initialScores)
@@ -197,11 +206,6 @@ function App() {
   const [savedResult, setSavedResult] = useState<SavedResult | null>(null)
   const [showingSavedResult, setShowingSavedResult] = useState(false)
   const [inProgressSession, setInProgressSession] = useState<InProgressSession | null>(null)
-
-  const selectedSetMeta = useMemo(
-    () => availableQuestionSetsMeta.find((set) => set.id === selectedSetId) ?? availableQuestionSetsMeta[0],
-    [selectedSetId],
-  )
 
   const resultStorageKey = useMemo(() => getStorageKey(STORAGE_KEY, selectedSetId), [selectedSetId])
   const inProgressStorageKey = useMemo(() => getStorageKey(IN_PROGRESS_KEY, selectedSetId), [selectedSetId])
@@ -383,28 +387,24 @@ function App() {
       <section className="panel">
         <header className="panel-head">
           <h1>Color Dress Test</h1>
-          <p className="subtitle">
-            12 questions tirées au hasard dans une banque de {selectedSetMeta.questionCount}. Réponds spontanément.
-          </p>
         </header>
 
         {phase === 'intro' && (
           <div className="intro card pop-in">
             <h2>Comment ça marche ?</h2>
             <p>
-              Tu réponds à {QUESTIONS_PER_RUN} questions, puis tu obtiens ta répartition Rouge/Jaune/Vert/Bleu,
-              un résumé concret et une proposition de tenue simple.
+              Tu réponds à des questions, puis tu obtiens ta répartition Rouge/Jaune/Vert/Bleu, un résumé concret
+              et une proposition de tenue simple.
             </p>
             <div className="set-picker">
-              <label htmlFor="set-select">Choisis un jeu de scénarios</label>
+              <label htmlFor="set-select">Choisis ton mode</label>
               <select id="set-select" value={selectedSetId} onChange={(event) => setSelectedSetId(event.target.value)}>
-                {availableQuestionSetsMeta.map((set) => (
-                  <option key={set.id} value={set.id}>
-                    {set.id} ({set.questionCount} questions)
+                {audienceOptions.map((audience) => (
+                  <option key={audience.id} value={audience.id}>
+                    {audience.label}
                   </option>
                 ))}
               </select>
-              <p className="set-help">{selectedSetMeta.description}</p>
             </div>
             <div className="intro-actions">
               <button className="primary-btn" onClick={startQuiz}>

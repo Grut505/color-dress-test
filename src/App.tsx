@@ -42,7 +42,7 @@ const SCORE_DISCRIMINATION_BOOST = 1.02
 
 const audienceOptions = [
   { id: 'fr-enfants-rigolo', label: 'Mode Enfant' },
-  { id: 'fr-terreaterre-rigolo', label: 'Mode Adulte' },
+  { id: 'fr-terreaterre-rigolo', label: 'Mode Adulte (SFW ;) )' },
 ] as const
 
 const DEFAULT_AUDIENCE_SET_ID = 'fr-terreaterre-rigolo'
